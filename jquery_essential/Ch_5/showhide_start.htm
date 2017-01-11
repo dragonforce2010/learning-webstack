@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Showing and Hiding Elements</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#show").click(function() {
+            });
+            $("#hide").click(function() {
+            });
+            $("#toggle").click(function() {
+            });
+        });
+    </script>
+    <style type="text/css">
+        p,
+        span {
+            font-size: 16pt;
+        }
+        
+        button {
+            margin: 5pt 5pt 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Using the show and hide effects</h1>
+    <div id="content">
+
+        <p>The show() and hide() functions are the simplest way to reveal and hide elements. This can be done with an optional
+            animation.</p>
+        <ul>
+            <li><code>show()</code>: Reveals the matched elements using an optional animation</li>
+            <li><code>hide()</code>: Hides the matched elements using an optional animation</li>
+            <li><code>toggle()</code>: Toggles the visible state of the matched elements using an optional animation</li>
+        </ul>
+        <div id="theDiv" class="box">
+        </div>
+        <button id="show">Show</button>
+        <button id="hide">Hide</button>
+        <button id="toggle">Toggle</button>
+    </div>
+</body>
+
+</html>

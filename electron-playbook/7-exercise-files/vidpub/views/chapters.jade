@@ -1,0 +1,30 @@
+div(id = "chapter-nav")
+  h4(style = "text-align:center") Chapters
+  ul
+    li
+      a(href="#", id="01-history_of_pi" class="chapter-link") A History of Pi
+    li 
+      a(href="#", id="02-the-origins-of-beer" class="chapter-link") The Origins of Beer
+    li 
+      a(href="#", id="03-phi_golden_ratio" class="chapter-link") Phi, The Golden Ratio
+
+div(id="chapter")
+  h2(id="title")
+  p(id="content")
+  
+script.
+  var renderMarkdownPage = function(title){
+    var MarkdownPage = require("./lib/markdown_page");
+    var page = new MarkdownPage(title);
+    $("#title").html(page.title);
+    $("#content").html(page.body);
+  }
+  $(function(){
+    renderMarkdownPage("01-history_of_pi");
+    $(".chapter-link").on("click", function(ev){
+      ev.preventDefault();
+      var id = this.id;
+      renderMarkdownPage(id);
+    });
+  });
+  

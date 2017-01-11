@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Vidpub</title>
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <script>var $ = jQuery = require("jquery");</script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <div id="side-nav">
+        <ul>
+          <li><a href="#" id="home" class="nav"><i class="fa fa-home"></i></a></li>
+          <li><a href="#" id="chapters" class="nav"><i class="fa fa-list"></i></a></li>
+          <li><a href="#" id="search" class="nav"><i class="fa fa-search"></i></a></li>
+        </ul>
+      </div>
+      <div id="top-bar">
+        <ul>
+          <li><a href="#"><i class="fa fa-user"></i></a></li>
+        </ul>
+      </div>
+      <div id="main">
+
+      </div>
+    </div>
+  </body>
+
+<script>
+  var app = require("./lib/app");
+  app.on("rendered", function(rendered){
+    $("#main").html(rendered);
+  });
+  var showContent = function(view){
+    app.emit("view-selected", view);
+  }
+  $(function(){
+    showContent("chapters");
+    $(".nav").on("click", function(ev){
+      ev.preventDefault();
+      showContent(this.id);
+    });
+  });
+</script>
+</html>

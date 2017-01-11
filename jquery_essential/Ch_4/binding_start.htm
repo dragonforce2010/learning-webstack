@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Binding and Unbinding Events with jQuery</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $(function() {
+        });
+    </script>
+    <style type='text/css'>
+        .highlighted {
+            background-color: Red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Binding and Unbinding Events Example</h1>
+    <div id="content">
+
+        <p>jQuery makes it simple to start and stop listening to events using the <code>on()</code> and <code>off()</code> functions.
+            You just need to supply the name of the event you want to listen to and a function to handle it</p>
+        <div id="evtTarget" class="box">Mouse over this div to see the effect. Click on it to unbind the mouseover.</div>
+        <p>Type in this text field</p>
+        <input id="textEntry" type="text" />
+        <p>Last character typed: <span id="keyPress"></span></p>
+    </div>
+</body>
+
+</html>

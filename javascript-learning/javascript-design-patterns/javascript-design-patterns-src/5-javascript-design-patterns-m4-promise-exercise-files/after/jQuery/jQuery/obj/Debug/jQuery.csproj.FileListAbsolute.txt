@@ -1,0 +1,8 @@
+D:\Dropbox\aaron-powell\javascript-design-patterns\Promise\before\jQuery\jQuery\bin\jQuery.dll
+D:\Dropbox\aaron-powell\javascript-design-patterns\Promise\before\jQuery\jQuery\bin\jQuery.pdb
+D:\Dropbox\aaron-powell\javascript-design-patterns\Promise\before\jQuery\jQuery\obj\Debug\jQuery.dll
+D:\Dropbox\aaron-powell\javascript-design-patterns\Promise\before\jQuery\jQuery\obj\Debug\jQuery.pdb
+D:\Dropbox\aaron-powell\javascript-design-patterns\Promise\after\jQuery\jQuery\bin\jQuery.dll
+D:\Dropbox\aaron-powell\javascript-design-patterns\Promise\after\jQuery\jQuery\bin\jQuery.pdb
+D:\Dropbox\aaron-powell\javascript-design-patterns\Promise\after\jQuery\jQuery\obj\Debug\jQuery.dll
+D:\Dropbox\aaron-powell\javascript-design-patterns\Promise\after\jQuery\jQuery\obj\Debug\jQuery.pdb

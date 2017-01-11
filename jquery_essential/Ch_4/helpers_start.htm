@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Using jQuery Event Helper Functions</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $(function() {
+        });
+    </script>
+    <style type='text/css'>
+        .highlighted {
+            background-color: Red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Using Event Helpers</h1>
+    <div id="content">
+
+        <p>Some types of events are fairly common, and jQuery provides shorthand helper functions to make your code a little
+            easier to write and read. Some examples:</p>
+        <ul>
+            <li><code>hover()</code>: use this instead of mouseover and mouseleave events</li>
+            <li><code>click()</code>: listens for click events</li>
+            <li><code>dblclick()</code>: listens for double-click events</li>
+            <li><code>resize()</code>: fired on the window object when the browser window resizes</li>
+        </ul>
+        <div id="evtTarget" class="box">Mouse over this div to see the hover effect. Try clicking and double-clicking.</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The Ajax Helper Functions</title>
+    <style>
+        #ajaxContent {
+            padding: 5pt;
+            border: 2px dashed lightgray;
+        }
+    </style>
+    <link rel="stylesheet" href="../style.css" />
+
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            getData();
+        });
+        
+        function getData() {
+        }
+
+        function successFn(result) {
+            console.log("Setting result");
+            $("#ajaxContent").append(result);
+        }
+        function errorFn(xhr, status, strErr) {
+            alert(strErr);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>The Ajax Helper Functions</h1>
+    <div id="content">
+
+        <p>It turns out that certain scenarios, such as retrieving data via AJAX and then inserting the returned content into
+            an element on the page, are pretty common in Web development.</p>
+        <p>jQuery provides a set of helper functions that make these scenarios easier.</p>
+        <p>Content will be inserted into this div:</p>
+        <p id="ajaxContent"></p>
+    </div>
+</body>
+
+</html>

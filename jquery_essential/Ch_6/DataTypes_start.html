@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Working With Different Data Types</title>
+    <style>
+        #ajaxContent {
+            padding: 5pt;
+            border: 2px dashed lightgray;
+        }
+    </style>
+    <link rel="stylesheet" href="../style.css" />
+
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            getXMLData();
+            //getJSONData();
+        });
+      
+        function getJSONData() {
+            var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+            
+        }
+
+        function getXMLData() {
+        }
+
+        function successFn(result) {
+        }
+
+        function errorFn(xhr, status, strErr) {
+            alert(strErr);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Working With Different Data Types</h1>
+    <div id="content">
+        <p>Using AJAX, it is possible to retrieve and work with different types of data. In this example, we will write jQuery
+            code to work with JSON and XML data.</p>
+        <ul>
+            <li>For the XML, we'll use a local file that contains a simple XML structure. </li>
+            <li>For the JSON example we'll use the public Flickr API to retrieve images that match a set of parameters.</li>
+        </ul>
+        <p>The returned data will be inserted into this div:</p>
+        <div id="ajaxContent"></div>
+    </div>
+</body>
+
+</html>

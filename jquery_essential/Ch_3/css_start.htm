@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery CSS Sizing and Positioning</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <h1>Using jQuery CSS Functions</h1>
+    <div id="content">
+
+        <p>CSS has historically been one of the areas of big differences between browsers. jQuery provides a set of cross-browser
+            functions for working with CSS values that commonly appear in development situations.</p>
+        <ul>
+            <li><code>width()</code> and <code>height()</code>: get or set the width/height of an element</li>
+            <li><code>innerWidth()</code> and <code>innerHeight()</code>: get or set the inner width/height of an element</li>
+            <li><code>outerWidth()</code> and <code>outerHeight()</code>: get the outer width/height of an element</li>
+            <li><code>offset()</code>: get coordinates of element relative to the document</li>
+            <li><code>position()</code>: get coordinates of element relative to the offset parent</li>
+        </ul>
+        <div id="example">
+            Example DIV Element
+        </div>
+        <div><span>Height: </span><span id="height"></span></div>
+        <div><span>Width: </span><span id="width"></span></div>
+        <div><span>innerHeight: </span><span id="innerH"></span></div>
+        <div><span>innerWidth: </span><span id="innerW"></span></div>
+        <div><span>outerHeight: </span><span id="outerH"></span></div>
+        <div><span>outerWidth: </span><span id="outerW"></span></div>
+        <div><span>offset: </span><span id="offset"></span></div>
+        <div><span>position: </span><span id="position"></span></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>例子19 - 删除/选择</title>
+	<style type="text/css">
+		* { margin:0; padding:0; }
+		body { padding:10px; }
+		#main { width:1200px; height:600px; overflow:hidden; border:1px solid #999; }
+	</style>
+	<script type="text/javascript">mxBasePath = '../src';</script>
+	<script type="text/javascript" src="../src/js/mxClient.js"></script>
+</head>
+<body>
+	
+
+	<div id="main"></div>
+
+	
+	<script type="text/javascript">	
+
+	(function(){
+		
+	 	var createButton, buttons, createVertex, randint;
+
+		// 创建按钮
+		createButton = function(label, fun){	
+			document.body.appendChild(mxUtils.button(label, fun));	 
+		};
+
+		// 随机范围整数
+		randint = function(n,m){
+			var c = m-n+1;  
+			return Math.floor(Math.random() * c + n);
+		};		
+
+		// 按钮列表
+		buttons = [
+			{
+				label : "选择所有",
+				fun : function(graph){
+					return function(evt){	
+						graph.selectAll();	
+					};
+				}
+			},
+			{
+				label : "选择一个",
+				fun : function(graph){
+					return function(evt){	
+						graph.selectCell();	
+					};
+				}
+			},
+			{
+				label : "取消选择",	
+				fun : function(graph){
+					return function(evt){
+						var cells = graph.getSelectionCells();	
+						graph.removeSelectionCells(cells);							
+					};
+				}
+			},
+			{
+				label : "随机添加",	
+				fun : function(graph){
+					return function(evt){
+						var randColor = function(){
+							return "rgb("+randint(0,255)+","+randint(0,255)+","+randint(0,255)+")";	
+						};
+						
+						var style = "fillColor=" + randColor() + "; fontColor=" + randColor();
+
+						var width = randint(50, 300);
+						var height = randint(50, 300);
+						var x = randint(0, 1200 - width);
+						var y = randint(0, 600 - height);
+
+						graph.insertVertex(graph.getDefaultParent(), null, "随机添加", x, y, width, height, style);
+					};	
+				}
+			},
+			{
+				label : "分组所选",
+				fun : function(graph){
+					return function(evt){
+						var cells = graph.getSelectionCells();
+						graph.groupCells(null, 1, cells);
+					};
+				}
+			},
+			{
+				label : "取消分组",
+				fun : function(graph){
+					return function(evt){
+						var cells = graph.getSelectionCells();
+						graph.ungroupCells(cells);
+					};
+				}
+			},
+			{
+				label : "删除所选",
+				fun : function(graph){
+					return function(evt){
+						var cells = graph.getSelectionCells();
+						graph.removeCells(cells);
+					};
+				}
+			},
+			{
+				label : "缩小",
+				fun : function(graph){
+					return function(evt){
+						graph.zoomOut();
+					};
+				}
+			},
+			{
+				label : "放大",
+				fun : function(graph){
+					return function(evt){
+						graph.zoomIn();
+					};
+				}
+			},
+			{
+				label : "还原",
+				fun : function(graph){
+					return function(evt){
+						graph.zoomActual();
+					};
+				}
+			},
+			{
+				label : "随机所选元素的位置",
+				fun : function(graph){
+					return function(evt){
+						var cells = graph.getSelectionCells();
+
+						for(var i=0; i<cells.length; i++){
+							var x = randint(0, 1200 - cells[i].geometry.width);		
+							var y = randint(0, 600 - cells[i].geometry.height);		
+						}
+
+						graph.moveCells([cells[i]], x , y);						
+					};
+				}
+			}
+
+		];
+
+		createVertex = function(){
+			var container = document.getElementById("main");
+			var graph = new mxGraph(container);
+			var parent = graph.getDefaultParent();
+
+			// 开启拖拽选择
+			new mxRubberband(graph);	
+
+			v1 = graph.insertVertex(parent, null, "text1", 100, 200, 100, 100);
+			graph.insertVertex(parent, null, "text2", 250, 200, 100, 100);
+			graph.insertVertex(parent, null, "text3", 400, 200, 100, 100);
+			graph.insertVertex(parent, null, "text4", 250, 400, 100, 100);
+			graph.insertVertex(parent, null, "text5", 100, 400, 100, 100);
+
+			return graph;
+		};
+
+		(function(){
+			graph = createVertex(); 
+			
+			for(var i=0; i<buttons.length; i++){
+				createButton( buttons[i].label, buttons[i].fun(graph) );	
+			} 
+		})(); 
+	})();
+
+	</script>
+</body>
+</html>
+

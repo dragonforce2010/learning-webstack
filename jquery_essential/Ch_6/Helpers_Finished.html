@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The Ajax Helper Functions</title>
+    <style>
+        #ajaxContent {
+            padding: 5pt;
+            border: 2px dashed lightgray;
+        }
+    </style>
+    <link rel="stylesheet" href="../style.css" />
+
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            getData();
+        });
+        
+        function getData() {
+            // use the get() shorthand method to request a resource
+            $.get("testdata.txt", successFn);
+            
+            // the load() shorthand method performs the common task of retrieving HTML content
+            // and inserts the returned content into the specified element. 
+            //$("#content").load("testdata.html");
+            
+            // you can also specify a portion of the content to load
+            //$("#content").load("testdata.html #p2");
+        }
+
+        function successFn(result) {
+            console.log("Setting result");
+            $("#ajaxContent").append(result);
+        }
+        function errorFn(xhr, status, strErr) {
+            alert(strErr);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>The Ajax Helper Functions</h1>
+    <div id="content">
+
+        <p>It turns out that certain scenarios, such as retrieving data via AJAX and then inserting the returned content into
+            an element on the page, are pretty common in Web development.</p>
+        <p>jQuery provides a set of helper functions that make these scenarios easier.</p>
+        <ul>
+            <li><code>get()</code> and <code>post()</code>: shorthand methods for GET and POST requests</li>
+            <li><code></code></li>
+        </ul>
+        <p>Content will be inserted into this div:</p>
+        <p id="ajaxContent"></p>
+    </div>
+</body>
+
+</html>

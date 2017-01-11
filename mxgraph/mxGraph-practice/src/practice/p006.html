@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>例子6 - 缩放控制</title>
+
+    <meta charset="UTF-8">
+    <title>Example 001</title>
+
+    <script type="text/javascript">
+        mxBasePath = "../lib";
+    </script>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../lib/js/mxClient.js"></script>
+    <script></script>
+
+</head>
+<body>
+
+<div id="main"></div>
+
+
+<script type="text/javascript">
+    document.body.style.margin = 0;
+    document.body.style.padding = 0;
+
+    var container = document.getElementById("main");
+    container.style.background = 'url(editors/images/grid.gif)';
+
+    container.style.width = "100%";
+    container.style.height =  (window.screen.availHeight - 90 ) + "px";
+    container.style.overflow = "hidden";
+
+    var graph = new mxGraph(container);
+    graph.setConnectable(true);
+    graph.setCellsEditable(true);
+    mxGraphHandler.prototype.guidesEnabled = true;
+
+    graph.setEnabled(true);
+
+    var parent = graph.getDefaultParent();
+
+    graph.insertVertex(parent, 1, 'No. 1', 20, 20, 100, 100)
+    graph.insertVertex(parent, 2, 'No. 2', 20, 200, 100, 100)
+    graph.insertVertex(parent, 3, 'No. 3', 200, 20, 100, 100)
+    graph.insertVertex(parent, 4, 'No. 4', 200, 200, 100, 100)
+
+
+
+</script>
+</body>
+</html>
+
+

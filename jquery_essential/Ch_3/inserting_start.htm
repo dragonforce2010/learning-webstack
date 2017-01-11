@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Inserting Document Content</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Inserting Document Content</h1>
+    <div id="content">
+
+        <p>Content can be inserted at various points in the document, relative to existing content, using a variety of jQuery
+            methods built for each purpose.</p>
+        <p>There are two sets of insertion functions: one set for inserting content inside of other content, and one for inserting
+            outside of other content.</p>
+        <ul id="list1">
+            <li class="a"><code>append()</code>: Appends content to the inside of the matched elements</li>
+            <li class="a"><code>prepend()</code>: Prepends content to the inside of the matched elements</li>
+            <li class="a"><code>appendTo()</code>: Appends the specified content to the inside of the matched elements</li>
+            <li class="a"><code>prependTo()</code>: Prepends the specified content to the inside of the matched elements</li>
+        </ul>
+        <ul>
+            <li class="a"><code>after()</code>: Appends content to the outside of the matched elements</li>
+            <li class="a"><code>before()</code>: Prepends content to the outside of the matched elements</li>
+            <li class="a"><code>insertAfter()</code>: Takes the specified content and appends it outside of the specified elements</li>
+            <li class="a"><code>insertBefore()</code>: Takes the specified content and prepends it outside of the specified elements</li>
+        </ul>
+        <div id="example">
+            <p class="a">This is paragraph 1</p>
+            <p id="para1">This is paragraph 2</p>
+            <p class="b">This is paragraph 3</p>
+            <p id="para4" lang="en-us">This is paragraph 4</p>
+            <p id="para5" lang="en-gb">This is paragraph 5</p>
+        </div>
+    </div>
+</body>
+
+</html>

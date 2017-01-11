@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>例子13 - 综合布局</title>
+	<style type="text/css">
+		* { margin:0; padding:0; }
+		body { padding:10px; }
+		body>div {  float:left; margin:10px;}
+		body:after { clear:both;content:".";display:block;height:0;visibility:hidden; overflow:hidden; }
+		body>div>div.box { width:600px; height:300px; border:1px solid #999; overflow:hidden; }
+	</style>
+	<script type="text/javascript">mxBasePath = '../src';</script>
+	<script type="text/javascript" src="../src/js/mxClient.js"></script>
+</head>
+<body>
+	<div><p>第1个例子 <button>Layout</button> </p><div class="box"></div></div>
+	<div><p>第2个例子 <button>Layout</button> </p><div class="box"></div></div>
+	<div><p>第3个例子 <button>Layout</button> </p><div class="box"></div></div>
+	<div><p>第4个例子 <button>Layout</button> </p><div class="box"></div></div>
+	<div><p>第5个例子 <button>Layout</button> </p><div class="box"></div></div>
+	<div><p>第6个例子 <button>Layout</button> </p><div class="box"></div></div>
+	
+	<script type="text/javascript">	
+
+		/**
+		 * mxCompositeLayout 综合布局
+		 */
+
+		(function(){
+		 	var vertexWidth = 50;
+		 	var vertexHeight = 50;
+			var boxs = document.querySelectorAll(".box");
+			var buttons = document.querySelectorAll("button");
+			
+			var randint = function(n,m){
+				var c = m-n+1;  
+				return Math.floor(Math.random() * c + n);
+			};
+
+			var create = function(width, height, n, g, p){		
+				var m, x, y, arr=[], form, to, text="";
+
+				rangeWidth = parseInt(width, 10) - vertexWidth;	
+				rangeHeight = parseInt(height, 10) - vertexHeight;
+				
+				for(m=0; m<n; m++){
+
+					x = randint(0, rangeWidth);
+					y = randint(0, rangeHeight);
+
+					if(m === 0){
+						y = randint(0, 10);				
+						x = randint(0, 10);
+					}
+
+					arr.push(g.insertVertex(p, null, m+1, x, y, vertexWidth, vertexHeight));	
+				}
+	
+				for(m=0; m<arr.length; m++ ){	
+					if(typeof arr[m+1] == "undefined"){	
+						to = arr[0];
+					}else{	
+						to = arr[m+1];
+					}
+
+					form = arr[m]; 	
+					text = form.getValue() + " to " + to.getValue();
+					g.insertEdge(p, null, text, form, to);
+				}	
+
+				return arr;
+			};
+		 
+			for(var i=0; i<boxs.length; i++){
+				var graph = new mxGraph(boxs[i]);
+				var parent = graph.getDefaultParent();
+
+				var arr;
+
+				// 选择基本元素开启
+				graph.setEnabled(true);
+
+				graph.setConnectable(true);
+				
+				arr = create(600, 300, i+2, graph, parent);
+
+				buttons[i].onclick = (function(g, cells){
+					return function(){		
+						var first = new mxFastOrganicLayout(g);
+						var second = new mxParallelEdgeLayout(g);
+						var layout = new mxCompositeLayout(g, [first, second], first);
+
+						layout.execute(g.getDefaultParent());
+					};
+				})(graph, arr);
+			}		 
+		 
+		})();
+
+	</script>
+</body>
+</html>

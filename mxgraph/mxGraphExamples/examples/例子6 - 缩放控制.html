@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>例子6 - 缩放控制</title>
+
+	<script type="text/javascript">mxBasePath = '../src';</script>
+
+	<script type="text/javascript" src="../src/js/mxClient.js"></script>
+
+</head>
+<body>
+
+	<div id="main"></div>
+	
+
+	<script type="text/javascript">
+
+		var container = document.getElementById("main");
+		container.style.background = 'url(editors/images/grid.gif)';
+		container.style.width = "500px";
+		container.style.height = "500px";
+		container.style.border = "1px solid #000";
+		container.style.margin = "0 0 10px 0";
+		container.style.overflow = "hidden";
+
+		var graph = new mxGraph(container);
+
+
+		var parent = graph.getDefaultParent();
+
+		var style = graph.getStylesheet().getDefaultVertexStyle();
+
+		// 不设置这个属性 背景图片不出来
+		style[mxConstants.STYLE_SHAPE] = mxConstants.SHAPE_LABEL;
+
+		style[mxConstants.STYLE_OVERFLOW] = "hidden";
+		style[mxConstants.STYLE_IMAGE_ALIGN] = mxConstants.ALIGN_CENTER;
+		style[mxConstants.STYLE_IMAGE_VERTICAL_ALIGN] = mxConstants.ALIGN_CENTER;
+		style[mxConstants.STYLE_IMAGE] = 'http://imgstatic.baidu.com/img/image/shouye/wangluomeinv5373634551.jpg';
+		style[mxConstants.STYLE_IMAGE_WIDTH] = 100;
+		style[mxConstants.STYLE_IMAGE_HEIGHT] = 100;
+
+		// 画方块
+		var v1 = graph.insertVertex(parent, 1, '', 200, 200, 150, 150);
+		var v2 = graph.insertVertex(parent, 2, '', 200, 400, 150, 150)
+
+		// 居中缩放
+		graph.centerZoom = true;
+
+		// 放大按钮
+		document.body.appendChild(mxUtils.button('放大 +', function(evt){
+			graph.getModel().get(v1.id).zoomIn();
+		}));
+
+		// 缩小按钮
+		document.body.appendChild(mxUtils.button('缩小 -', function(evt){
+			graph.zoomOut();	
+		}));
+
+		// 还原按钮
+		document.body.appendChild(mxUtils.button('还原 #', function(evt){
+			graph.zoomActual();
+			graph.zoomFactor = 1.2;
+			input.value = 1.2;
+		}));
+
+		var input = document.createElement("input");
+		input.type = "text";
+		input.value = graph.zoomFactor;
+		input.addEventListener("blur", function(){
+			graph.zoomFactor = parseFloat(this.value, 10);				
+		});
+		document.body.appendChild(input);
+		
+	</script>
+</body>
+</html>
+
+

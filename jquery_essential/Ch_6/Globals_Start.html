@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Using AJAX Global Events</title>
+    <style>
+        #ajaxContent {
+            padding: 5pt;
+            border: 2px dashed lightgray;
+        }
+    </style>
+    <link rel="stylesheet" href="../style.css" />
+
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            getData();
+        });
+      
+        function getData() {
+            $.get("testdata.txt", successFn);
+        }
+        
+        function successFn(result) {
+            console.log("Setting result");
+            $("#ajaxContent").append(result);
+        }
+        function errorFn(xhr, status, strErr) {
+            alert(strErr);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Using AJAX Global Events</h1>
+    <div id="content">
+        <p id="ajaxContent"></p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Animating an Element</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#right").click(function() {
+            });
+            $("#text").click(function() {
+            });
+            $("#move").click(function() {
+            });
+            $("#all").click(function() {
+            });
+        });
+    </script>
+    <style type="text/css">
+        #theDiv {
+            position: relative;
+            width: 250px;
+            height: 180px;
+            margin: 10px;
+            padding: 20px;
+            background: #b3c8d0;
+            border: 1px solid black;
+            font-size: 16pt;
+            cursor: pointer;
+            left:100px;
+        }
+        
+        button {
+            margin: 5pt 5pt 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Animating an Element's Properties</h1>
+    <div id="content">
+
+        <p>The <code>animate()</code> function provides a way to create smooth animations on the properties of an object.</p>
+        <p>Click the buttons below this <code>&lt;div&gt;</code> element to see how various properties can be animated.</p>
+        <div id="theDiv">Animate Me</div>
+        <button id="right">Grow Right</button>
+        <button id="text">Animate Text</button>
+        <button id="move">Move Element</button>
+        <button id="all">All Properties</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: #ababab;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.videoContainer {
+  flex: 1;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  z-index: 111;
+}
+.video {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.canvas {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.recordContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  position: relative;
+  z-index: 112;
+}
+.record {
+  height: 50px;
+  width: 50px;
+  background: linear-gradient(0deg, rgb(171, 25, 21), rgb(252, 98, 88));
+  border-radius: 50%;
+  border: 5px solid #efefef;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
+  cursor: pointer;
+}
+.record:hover {
+  background: linear-gradient(0deg, rgb(215, 121, 43), rgb(215, 48, 43), rgb(252, 123, 88));
+  border: 5px solid white;
+}
+.record[disabled] {
+  background: linear-gradient(0deg, rgb(51, 51, 51), rgb(135, 114, 114));
+}
+.photosContainer {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  height: 84px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  z-index: 112;
+}
+.photo {
+  flex: none;
+  position: relative;
+  height: 84px;
+  width: 150px;
+  margin-right: 15px;
+  background: linear-gradient(45deg, rgb(92, 92, 92), rgb(148, 148, 148));
+  border: 5px solid #efefef;
+  box-shadow: 2px 2px 4px solid rgba(0, 0, 0, .3);
+  cursor: pointer;
+}
+.photoImg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.photoClose {
+  display: none;
+  position: absolute;
+  top: -14px;
+  right: -14px;
+}
+.photoClose:after {
+  display: block;
+  content: "\00D7";
+  font-size: 20px;
+  color: #fff;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  background: rgba(0, 0, 0, .8);
+  border-radius: 50%;
+  text-align: center;
+}
+.photo:hover {
+  border: 5px solid rgba(31, 221, 209, 0.6);
+}
+.photo:hover .photoClose {
+  display: block;
+}
+.photoClose:hover:after {
+  color: rgb(227, 128, 128);
+}
+.counterContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 113;
+}
+.counter {
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, .6);
+  font-size: 125px;
+  font-weight: bold;
+}
+.flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  z-index: 114;
+}
+
+@keyframes flashing {
+  0% { background: rgba(255, 255, 255, 1); }
+  100% { background: rgba(255, 255, 255, 0); }
+}
+.is-flashing {
+  animation: 2s ease-out 0s 1 flashing;
+}

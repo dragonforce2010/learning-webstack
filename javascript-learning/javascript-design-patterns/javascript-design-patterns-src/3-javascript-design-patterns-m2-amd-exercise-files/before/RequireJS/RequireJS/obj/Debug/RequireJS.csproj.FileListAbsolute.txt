@@ -1,0 +1,4 @@
+D:\Dropbox\aaron-powell\javascript-design-patterns\AMD\before\RequireJS\RequireJS\bin\RequireJS.dll
+D:\Dropbox\aaron-powell\javascript-design-patterns\AMD\before\RequireJS\RequireJS\bin\RequireJS.pdb
+D:\Dropbox\aaron-powell\javascript-design-patterns\AMD\before\RequireJS\RequireJS\obj\Debug\RequireJS.dll
+D:\Dropbox\aaron-powell\javascript-design-patterns\AMD\before\RequireJS\RequireJS\obj\Debug\RequireJS.pdb

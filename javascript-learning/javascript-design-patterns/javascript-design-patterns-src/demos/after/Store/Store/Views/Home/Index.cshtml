@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@section Sidebar
+{
+    <section class="well sidebar-nav big-cart">
+        <h1>0</h1>
+        <ul class="nav nav-list">
+        </ul>
+    </section>
+}
+@section Scripts
+{
+    <script data-main="scripts/app/products" src="@Url.Content("~/Scripts/require.js")"></script>
+}
+<ol class="products">
+    <li>
+        <section>
+            <div>
+                <i class="icon-plus" title="Add to cart"></i>
+                <img src="@Url.Content("~/img/js.png")" alt="Logo" />
+            </div>
+            <h1>Common Object Patterns</h1>
+            <p>Design patterns for working with objects in JavaScript.</p>
+        </section>
+    </li>
+    <li>
+        <section>
+            <div>
+                <i class="icon-plus" title="Add to cart"></i>
+                <img src="@Url.Content("~/img/js.png")" alt="Logo" />
+            </div>
+            <h1>Timer Patterns</h1>
+            <p>Design patterns for using timers.</p>
+        </section>
+    </li>
+    <li>
+        <section>
+            <div>
+                <i class="icon-plus" title="Add to cart"></i>
+                <img src="@Url.Content("~/img/js.png")" alt="Logo" />
+            </div>
+            <h1>AMDs</h1>
+            <p>Understanding module patterns in JavaScript.</p>
+        </section>
+    </li>
+    <li>
+        <section>
+            <div>
+                <i class="icon-plus" title="Add to cart"></i>
+                <img src="@Url.Content("~/img/js.png")" alt="Logo" />
+            </div>
+            <h1>Pub/ Sub</h1>
+            <p>Implementing Pub/ Sub in JavaScript.</p>
+        </section>
+    </li>
+</ol>

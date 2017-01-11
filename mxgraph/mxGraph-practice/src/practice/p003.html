@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 001</title>
+
+    <script type="text/javascript">
+        mxBasePath = "../lib";
+    </script>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../lib/js/mxClient.js"></script>
+    <script></script>
+</head>
+<body>
+    <div id="main"></div>
+    <script>
+        var container = $("#main")[0];
+//        container.style.background = 'url(../lib/editors/images/grid.gif)';
+
+        var graph = new mxGraph(container);
+        var parent = graph.getDefaultParent();
+
+        // 声明一个object
+        var style = {};
+
+        // 克隆一个object
+        style = mxUtils.clone(style);
+
+        style[mxConstants.STYLE_SHAPE] = mxConstants.SHAPE_LABEL;
+
+        // 边框颜色
+        style[mxConstants.STYLE_STROKECOLOR] = '#999999';
+
+        // 边框大小
+        style[mxConstants.STYLE_STROKEWIDTH] = 10;
+
+        // 字体颜色
+        style[mxConstants.STYLE_FONTCOLOR] = '#FFFF00';
+
+        // 文字水平方式
+        style[mxConstants.STYLE_ALIGN] = mxConstants.ALIGN_CENTER;
+
+        // 文字垂直对齐
+        style[mxConstants.STYLE_VERTICAL_ALIGN] = mxConstants.ALIGN_BOTTOM;
+
+        // 字体大小
+        style[mxConstants.STYLE_FONTSIZE] = 30;
+
+        // 底图水平对齐
+        style[mxConstants.STYLE_IMAGE_ALIGN] = mxConstants.ALIGN_CENTER;
+
+        // 底图垂直对齐
+        style[mxConstants.STYLE_IMAGE_VERTICAL_ALIGN] = mxConstants.ALIGN_CENTER;
+
+        // 图片路径
+        //style[mxConstants.STYLE_IMAGE] = 'images/icons48/gear.png';
+        style[mxConstants.STYLE_IMAGE] = 'http://imgstatic.baidu.com/img/image/shouye/qizhi0822.jpg';
+
+        // 背景图片宽
+        style[mxConstants.STYLE_IMAGE_WIDTH] = 150;
+
+        // 背景图片高
+        style[mxConstants.STYLE_IMAGE_HEIGHT] = 200;
+
+        // 上间距设置
+        // 即使下边定义了全局设置，但这里单独设置上边间距仍单独有效
+        style[mxConstants.STYLE_SPACING_TOP] = 30;
+
+        // 四边间距设置
+        style[mxConstants.STYLE_SPACING] = 10;
+
+        // 把定义好的样式object push到stylesheet
+        graph.getStylesheet().putCellStyle("style1", style);
+
+
+
+
+        // 声明一个object
+        var style = {};
+
+        // 克隆一个object
+        style = mxUtils.clone(style);
+
+        style[mxConstants.STYLE_SHAPE] = mxConstants.SHAPE_LABEL;
+
+        // 背景颜色
+        style[mxConstants.STYLE_FILLCOLOR] = "#000000";
+
+        // 圆角开启
+        style[mxConstants.STYLE_ROUNDED] = true;
+
+        // 圆角弧度
+        style[mxConstants.STYLE_ARCSIZE] = 10;
+
+        // 边框颜色
+        style[mxConstants.STYLE_STROKECOLOR] = '#999999';
+
+        // 边框大小
+        style[mxConstants.STYLE_STROKEWIDTH] = 10;
+
+        // 字体颜色
+        style[mxConstants.STYLE_FONTCOLOR] = '#FF0000';
+
+        // 文字水平方式
+        style[mxConstants.STYLE_ALIGN] = mxConstants.ALIGN_CENTER;
+
+        // 文字垂直对齐
+        style[mxConstants.STYLE_VERTICAL_ALIGN] = mxConstants.ALIGN_BOTTOM;
+
+        // 字体大小
+        style[mxConstants.STYLE_FONTSIZE] = 30;
+
+        // 文字底色
+        style[mxConstants.STYLE_LABEL_BACKGROUNDCOLOR] = '#FF00FF';
+
+        // 文字边框颜色
+        style[mxConstants.STYLE_LABEL_BORDERCOLOR] = '#fff000';
+
+        // 文字边框内间距
+        style[mxConstants.STYLE_LABEL_PADDING] = 5;
+
+        // 文字透明度
+        // value 1 - 100 越小透明度越高
+        style[mxConstants.STYLE_TEXT_OPACITY] = 100;
+
+        // 字体设置
+        style[mxConstants.STYLE_FONTFAMILY] = "黑体";
+
+        // 超出设置
+        style[mxConstants.STYLE_OVERFLOW] = "hidden";
+
+
+        // 底图水平对齐
+        style[mxConstants.STYLE_IMAGE_ALIGN] = mxConstants.ALIGN_CENTER;
+
+        // 底图垂直对齐
+        style[mxConstants.STYLE_IMAGE_VERTICAL_ALIGN] = mxConstants.ALIGN_CENTER;
+
+        // 图片路径
+        //style[mxConstants.STYLE_IMAGE] = 'images/icons48/gear.png';
+        style[mxConstants.STYLE_IMAGE] = 'http://imgstatic.baidu.com/img/image/shouye/738b4710b912c8fca8149ebdfd039245d78821de.jpg';
+
+        // 背景图片宽
+        style[mxConstants.STYLE_IMAGE_WIDTH] = 200;
+
+        // 背景图片高
+        style[mxConstants.STYLE_IMAGE_HEIGHT] = 300;
+
+        // 透明度
+        style[mxConstants.STYLE_OPACITY] = 100;
+
+        // 投影
+        style[mxConstants.STYLE_SHADOW] = 19;
+
+
+
+        // 上间距设置
+        // 即使下边定义了全局设置，但这里单独设置上边间距仍单独有效
+        style[mxConstants.STYLE_SPACING_TOP] = 30;
+
+        // 四边间距设置
+        style[mxConstants.STYLE_SPACING] = 20;
+
+        // 把定义好的样式object push到stylesheet
+        graph.getStylesheet().putCellStyle("style2", style);
+
+
+
+
+
+        /** 样式定义 END **/
+        var v1 = graph.insertVertex(parent, null, 'The first box', 100, 100, 200, 20, "mystyle;fillColor=#ff99ff")
+        var v2 = graph.insertVertex(parent, null, 'The second box', 500, 100, 200, 20, "mystyle");
+
+
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,15 @@
+{
+    "name": "lesson1",
+    "version": "1.0.0",
+    "description": "fresh beginning",
+    "main": "src/main.js",
+    "scripts": {
+        "start": "electron-reload .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "michael.zhang",
+    "license": "ISC",
+    "dependencies": {
+        "electron-prebuilt": "^1.4.10"
+    }
+}

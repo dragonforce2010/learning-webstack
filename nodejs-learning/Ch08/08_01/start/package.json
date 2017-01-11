@@ -1,0 +1,21 @@
+{
+  "name": "ski-dictionary",
+  "version": "1.0.0",
+  "description": "A collection of skier terms and definitons",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ski",
+    "terms",
+    "dictionary"
+  ],
+  "author": "Michael Zhang",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0"
+  }
+}

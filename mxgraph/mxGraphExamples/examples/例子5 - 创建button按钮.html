@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>例子5 - 创建button按钮</title>
+
+	<script type="text/javascript">mxBasePath = '../src';</script>
+
+	<script type="text/javascript" src="../src/js/mxClient.js"></script>
+
+</head>
+<body>
+
+	<div id="main"></div>
+
+	<script type="text/javascript">
+
+		// 定义容器
+		var container = document.getElementById("main");
+		container.style.height = "300px";
+		container.style.padding = "20px";
+
+		// 创建实例
+		var graph = new mxGraph(container);
+
+		var parent = graph.getDefaultParent();
+
+		// 添加按钮
+		document.body.appendChild(mxUtils.button('修改背景颜色', function(evt){
+
+			// Alaer
+			mxUtils.alert("Oh! You will Click me!!");
+
+			// 获取单元	
+			var cell = graph.getModel().getCell(v1.id);
+
+			// 修改样式
+			graph.setCellStyles(mxConstants.STYLE_FILLCOLOR, "#000000", [cell]);
+			graph.setCellStyles(mxConstants.STYLE_FONTCOLOR, "#FFFFFF", [cell]);
+
+		}));
+
+		// 添加按钮
+		document.body.appendChild(mxUtils.button('还原背景颜色', function(evt){
+
+
+			// 获取单元	
+			var cell = graph.getModel().getCell(v1.id);
+
+			// 获取默认样式
+			var style = graph.getStylesheet().getDefaultVertexStyle();
+
+			// 还原默认样式
+			for(var i in mxConstants){
+				graph.setCellStyles(mxConstants[i], style[mxConstants[i]], [cell]);
+			}
+
+		}));
+
+
+		var v1 = graph.insertVertex(parent, null, "text1", 50, 50, 100, 200);
+	</script>
+</body>
+</html>
+
+

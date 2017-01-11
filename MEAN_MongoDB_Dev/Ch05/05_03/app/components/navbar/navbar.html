@@ -1,0 +1,18 @@
+<nav ng-controller="NavbarController as nav" class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="https://github.com/Swiip/generator-gulp-angular">
+                <span class="glyphicon glyphicon-home"></span> My Message Board
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+            <ul class="nav navbar-nav">
+                <li class="active"><a ng-href="#">Home</a></li>
+                <li ng-hide="nav.isAuthenticated()"><a ui-sref="auth">Login</a></li>
+                <li ng-show="nav.isAuthenticated()"><a ng-click="nav.logout()">Logout</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>

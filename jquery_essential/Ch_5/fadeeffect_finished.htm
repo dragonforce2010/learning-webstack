@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Element Fading</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#fadein").click(function() {
+                $("#theDiv").fadeIn("normal");
+            });
+            $("#fadeout").click(function() {
+                $("#theDiv").fadeOut("normal");
+            });
+            $("#fadeto3").click(function() {
+                $("#theDiv").fadeTo("slow", 0.3);
+            });
+            $("#fadeup").click(function() {
+                $("#theDiv").fadeTo("slow", 1.0, onComplete);
+            });
+            $("#pulse").click(function() {
+                $("#theDiv").fadeTo("fast", 0.3)
+                            .fadeTo("fast", 1.0)
+                            .fadeTo("fast", 0.3)
+                            .fadeTo("fast", 1.0);
+            });
+        });
+        
+        function onComplete() {
+            $(this).text("Fading effect complete");
+        }
+    </script>
+    <style type="text/css">
+        p,
+        span {
+            font-size: 16pt;
+        }
+        
+        button {
+            margin: 5pt 5pt 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Element Fading Routines</h1>
+    <div id="content">
+
+        <p>Page elements can be faded in or out using a set of dedicated jQuery functions.</p>
+        <ul>
+            <li><code>fadeIn()</code> fades the element in from being invisible</li>
+            <li><code>fadeOut()</code> fades the element out and removes it from layout</li>
+            <li><code>fadeTo()</code> fades the element to a specified opacity</li>
+        </ul>
+        <div id="theDiv" class="box">
+        </div>
+        <button id="fadein">Fade In</button>
+        <button id="fadeout">Fade Out</button>
+        <button id="fadeto3">Fade To 30%</button>
+        <button id="fadeup">Fade To 100%</button>
+        <button id="pulse">Pulsate</button>
+    </div>
+</body>
+
+</html>

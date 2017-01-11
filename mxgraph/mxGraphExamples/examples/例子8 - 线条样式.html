@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>例子8 - 线条样式</title>
+
+	<script type="text/javascript">mxBasePath = '../src';</script>
+
+	<script type="text/javascript" src="../src/js/mxClient.js"></script>
+
+</head>
+<body>
+
+	<div id="main"></div>
+	
+
+	<script type="text/javascript">
+		document.body.style.margin = 0;
+		document.body.style.padding = 0;
+
+		var container = document.getElementById("main");
+		container.style.background = 'url(editors/images/grid.gif)';
+
+		container.style.width = "100%";
+		container.style.height =  (window.screen.availHeight - 90 ) + "px";
+		container.style.overflow = "hidden";
+
+		var graph = new mxGraph(container);
+
+
+		var parent = graph.getDefaultParent();
+
+
+
+
+		// 声明一个object
+		var style = {};
+
+
+		// 背景颜色	
+		style[mxConstants.STYLE_FILLCOLOR] = "#000000";
+
+		// 颜色
+		style[mxConstants.EDGE_SELECTION_COLOR] = "#FF0000";
+
+		// 线条宽度
+		style[mxConstants.STYLE_STROKEWIDTH] = 5;
+
+		// 字体颜色
+		style[mxConstants.STYLE_FONTCOLOR] = '#FF0000';
+
+		// 文字水平方式
+		style[mxConstants.STYLE_ALIGN] = mxConstants.ALIGN_CENTER;
+
+		// 文字垂直对齐
+		style[mxConstants.STYLE_VERTICAL_ALIGN] = mxConstants.ALIGN_BOTTOM;
+
+		// 字体大小
+		style[mxConstants.STYLE_FONTSIZE] = 30;
+
+		// 文字底色
+		style[mxConstants.STYLE_LABEL_BACKGROUNDCOLOR] = '#FF00FF';
+
+		// 文字边框颜色
+		style[mxConstants.STYLE_LABEL_BORDERCOLOR] = '#000000';
+
+		// 文字边框内间距
+		style[mxConstants.STYLE_LABEL_PADDING] = 5;
+
+		// 文字透明度
+		// value 1 - 100 越小透明度越高
+		style[mxConstants.STYLE_TEXT_OPACITY] = 100;
+
+		// 字体设置	
+		style[mxConstants.STYLE_FONTFAMILY] = "黑体";
+
+
+		
+		// 把定义好的样式object push到stylesheet
+		graph.getStylesheet().putCellStyle("edge", style);
+
+
+
+		// 画方块
+		var v1 = graph.insertVertex(parent, null, '第一个方块', 100, 100, 150, 150);
+		var v2 = graph.insertVertex(parent, null, '第二个方块', 800, 10, 150, 150);
+
+		var v3 = graph.insertVertex(parent, null, '第三个方块', 800, 500, 150, 150);
+		var v4 = graph.insertVertex(parent, null, '第四个方块', 1200, 300, 150, 150);
+
+
+
+		// 连线
+		graph.insertEdge(parent, null, "Connect", v1, v2, "perimeterSpacing=10;strokeWidth=15;labelBackgroundColor=white;strokeColor=#FF0000;fontColor=#FF0000;fontStyle=2;fontSize=20;")
+		graph.insertEdge(parent, null, "Connect", v1, v3, "edgeStyle=elbowEdgeStyle;strokeWidth=1;elbow=horizontal;exitX=0.5;exitY=1;exitPerimeter=1;entryX=0;entryY=0;entryPerimeter=1;strokeWidth=3;" );
+		graph.insertEdge(parent, null, "Connect", v1, v4, "edgeStyle=elbowEdgeStyle;strokeWidth=20;elbow=horizontal;orthogonal=0;entryX=0;entryY=0;entryPerimeter=1;elbow=vertical;rounded=true;" );
+		
+	</script>
+</body>
+</html>
+
+

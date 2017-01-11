@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 001</title>
+
+    <script type="text/javascript">
+        mxBasePath = "../lib";
+    </script>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../lib/js/mxClient.js"></script>
+    <script></script>
+</head>
+<body>
+    <div id="main"></div>
+    <script>
+        var container = $("#main")[0];
+        container.style.width = "100%";
+        container.style.height = "1024px";
+        container.style.background = 'url(../lib/editors/images/grid.gif)';
+
+        var graph = new mxGraph(container);
+        var parent = graph.getDefaultParent();
+
+        graph.insertVertex(parent, null, 'The first box', 100, 100, 200, 20)
+        graph.insertVertex(parent, null, 'The second box', 500, 100, 200, 20);
+
+
+    </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,16 @@
+{
+  "name": "electron-photobombth",
+  "productName": "Photobombth",
+  "version": "1.0.0",
+  "description": "Photobooth app",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "jaketrent",
+  "license": "MIT",
+  "devDependencies": {
+    "electron-prebuilt": "^1.2.2"
+  }
+}

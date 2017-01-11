@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery and AJAX</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            $("#getcontent").click(getContent);
+            $("#loadhtml").click(loadHTML);
+        });
+        
+        function getContent() {
+            $.ajax("sampletextcontent.txt", 
+                   { success: setContent, 
+                     type: "GET", 
+                     dataType: "text" });
+        }
+        
+        function setContent(data, status, jqxhr) {
+            $("#example").text(data);
+        }
+        
+        function loadHTML() {
+            $("#example").load("samplehtml.html");
+        }
+    </script>
+</head>
+
+<body>
+    <h1>AJAX and jQuery</h1>
+    <div id="content">
+        <p>One of jQuery's great strengths is how it simplifies working with AJAX. jQuery provides high-level wrapper functions
+            for retrieving data, working with different data types, handling errors, and monitoring the AJAX request process.</p>
+        <ul>
+            <li><code>ajax()</code>: used to perform generic AJAX requests</li>
+            <li><code>load()</code>: loads AJAX content directly into a page element</li>
+        </ul>
+        <div id="example">
+        </div>
+        <button id="getcontent">Get Text</button>
+        <button id="loadhtml">Load HTML</button>
+    </div>
+</body>
+
+</html>

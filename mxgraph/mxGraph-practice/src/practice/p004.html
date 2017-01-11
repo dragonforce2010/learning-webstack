@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 001</title>
+
+    <script type="text/javascript">
+        mxBasePath = "../lib";
+    </script>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../lib/js/mxClient.js"></script>
+    <script></script>
+</head>
+<body>
+
+<div id="main"></div>
+<div>
+    <button id="add">添加告警</button>
+    <button id="del">取消告警</button>
+</div>
+
+<div id="addform" style="display:none;">
+    <p>
+        <span>V1 <input type="checkbox" value="v1" class="box" /></span>
+        <span>V2 <input type="checkbox" value="v2" class="box" /></span>
+    </p>
+    <p>
+        <textarea></textarea>
+    </p>
+    <p><button id="addcommitbtn">OK</button></p>
+</div>
+
+<script type="text/javascript">
+
+    // 添加按钮事件
+    var btn = document.getElementById("add");
+    btn.addEventListener( "click",function(){
+        var addForm = document.getElementById("addform");
+        addForm.style.display = "block";
+    });
+
+    // 添加提交处理
+    var btn = document.getElementById("addcommitbtn");
+    btn.addEventListener( "click",function(){
+        var addForm = document.getElementById("addform");
+        addForm.style.display = "none";
+
+        var boxs = addForm.querySelectorAll("input");
+        var text = addForm.querySelector("textarea");
+
+        for(var i=0; i<boxs.length; i++){
+            if(boxs[i].checked === true){
+                var o = eval( "(function(){ return "+boxs[i].value+" })();");
+                addOverlay(o.id, text.value);
+            }
+        }
+
+    });
+
+    // 添加按钮事件
+    var btn = document.getElementById("del");
+    btn.addEventListener( "click",function(){
+        var addForm = document.getElementById("addform");
+        var boxs = addForm.querySelectorAll("input");
+
+        for(var i=0; i<boxs.length; i++){
+            if(boxs[i].checked === true){
+                var o = eval( "(function(){ return "+boxs[i].value+" })();");
+                delOverlay(o.id);
+            }
+        }
+    });
+
+
+    // 定义容器
+    var container = document.getElementById("main");
+    container.style.height = "300px";
+    container.style.padding = "20px";
+
+    // 创建实例
+    var graph = new mxGraph(container);
+
+    var parent = graph.getDefaultParent();
+
+    // 开启提示
+    graph.setTooltips(true);
+
+    // 移出报警
+    var delOverlay = function(id){
+
+        // 获取ID单元
+        var cell = graph.getModel().getCell(id);
+
+        // 修改有报警物体的样式
+        graph.setCellStyles(mxConstants.STYLE_FILLCOLOR, "#CCCCCC", [cell]);
+        graph.setCellStyles(mxConstants.STYLE_FONTCOLOR, "#000000", [cell]);
+
+        // 移除告警
+        graph.removeCellOverlays(cell);
+    };
+
+    // 给物体添加报警
+    var addOverlay = function(id, state){
+
+        // 获取ID单元
+        var cell = graph.getModel().getCell(id);
+
+        // 修改有报警物体的样式
+        graph.setCellStyles(mxConstants.STYLE_FILLCOLOR, "#00ff00", [cell]);
+        graph.setCellStyles(mxConstants.STYLE_FONTCOLOR, "#0000ff", [cell]);
+
+        // 添加告警
+        graph.addCellOverlay(cell, createOverlay(graph.warningImage, '状态: '+state));
+
+    };
+
+    // 创建告警信息
+    var createOverlay = function(image, tooltip){
+
+        var overlay = new mxCellOverlay(image, tooltip);
+
+        overlay.addListener(mxEvent.CLICK, function(sender, evt){
+            mxUtils.alert(tooltip);
+        });
+
+        return overlay;
+    };
+
+    // 修改默认样式
+    var style = graph.getStylesheet().getDefaultVertexStyle();
+    style[mxConstants.STYLE_FILLCOLOR] = "#CCCCCC";
+    style[mxConstants.STYLE_FONTCOLOR] = "#000000";
+    style[mxConstants.STYLE_FONTSIZE] = 30;
+
+    var v1 = graph.insertVertex(parent, null, "text1", 50, 50, 100, 200);
+    var v2 = graph.insertVertex(parent, null, "text2", 300, 50, 100, 200);
+
+</script>
+</body>
+</html>
+
+
+

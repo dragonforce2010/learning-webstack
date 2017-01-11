@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 001</title>
+
+    <script type="text/javascript">
+        mxBasePath = "../lib";
+    </script>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../lib/js/mxClient.js"></script>
+    <script></script>
+</head>
+<body>
+
+<div id="main"></div>
+
+
+<script type="text/javascript">
+
+
+    var x1 = mxGraph.prototype.foldCells;
+    mxGraph.prototype.foldCells = function (collapse, recurse, cells, checkFoldable) {
+       for(var i = 0; i < cells.length; i++) {
+           if(cells[i].id == g2.id) {
+               var cell = cells[i];
+               if(collapse){
+
+                   // 修改样式
+                   graph.setCellStyles(mxConstants.STYLE_FILLCOLOR, "none", [cell]);
+
+                   graph.setCellStyles(mxConstants.STYLE_SHAPE, mxConstants.SHAPE_LABEL, [cell]);
+
+                   graph.setCellStyles(mxConstants.STYLE_IMAGE, "http://imgstatic.baidu.com/img/image/shouye/738b4710b912c8fca8149ebdfd039245d78821de.jpg", [cell]);
+
+                   graph.setCellStyles(mxConstants.STYLE_IMAGE_WIDTH, 60, [cell]);
+                   graph.setCellStyles(mxConstants.STYLE_IMAGE_HEIGHT, 60, [cell]);
+                   graph.setCellStyles(mxConstants.STYLE_STROKECOLOR, "none", [cell]);
+
+
+               }else{
+
+                   // 获取默认样式
+                   var style = graph.getStylesheet().getDefaultVertexStyle();
+
+                   // 还原默认样式
+                   for(var i in mxConstants){
+                       graph.setCellStyles(mxConstants[i], style[mxConstants[i]], [cell]);
+                   }
+
+                   cell.style = "align=center;verticalAlign=top;";
+               }
+           }
+       }
+       x1.apply(this, [collapse, recurse, cells, checkFoldable])
+    };
+
+
+    document.body.style.margin = 0;
+    document.body.style.padding = 0;
+
+    var container = document.getElementById("main");
+    container.style.background = 'url(../lib/editors/images/grid.gif)';
+
+    container.style.width = "100%";
+    container.style.height =  (window.screen.availHeight - 90 ) + "px";
+    container.style.overflow = "hidden";
+
+    var graph = new mxGraph(container);
+
+    graph.setCellsResizable(false);
+
+    // 设定label内容支持html格式显示
+    graph.setHtmlLabels(true);
+
+    var parent = graph.getDefaultParent();
+
+
+    // 定义g1
+    var g1 = graph.insertVertex(parent, null, '组1', 50, 50, 300, 300, "align=center;verticalAlign=top;");
+
+    // 添加到g1组
+    graph.insertVertex(g1, null, '成员1', 100, 100, 100, 50);
+    graph.insertVertex(g1, null, '成员2', 100, 200, 100, 50);
+
+
+    // 定义g2
+    var g2 = graph.insertVertex(parent, null, '<i style="color:#0000FF;">组2</i> 展开', 500, 50, 300, 300, "align=center;verticalAlign=top;");
+
+    // 添加到g2组
+    graph.insertVertex(g2, null, '成员1', 100, 100, 100, 50);
+    graph.insertVertex(g2, null, '成员2', 100, 200, 100, 50);
+
+    // 定义收缩后的样式
+    g2.geometry.alternateBounds = new mxRectangle(0, 0, 260, 260);
+
+    // 收缩后的样式定义
+    graph.getLabel = function(cell){
+
+        var labelText = cell.value;
+
+        if(g2.id == cell.id && cell.isCollapsed() ){
+
+            //labelText = cell.value.replace("展开","收起");
+            labelText = "Collapsed";
+        }
+
+        return labelText;
+    };
+
+</script>
+</body>
+</html>

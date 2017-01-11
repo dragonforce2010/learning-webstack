@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jars">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mxgraph-source/mxgraph-backend/jars/iText-2.1.7_mx-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mxgraph-source/mxgraph-backend/jars/jetty-6.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mxgraph-source/mxgraph-backend/jars/jetty-util-6.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mxgraph-source/mxgraph-backend/jars/junit-4.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mxgraph-source/mxgraph-backend/jars/servlet-api-2.5-6.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

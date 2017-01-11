@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mxGraph-practice/mxGraph-practice.iml" filepath="$PROJECT_DIR$/mxGraph-practice/mxGraph-practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mxgraph-source/mxgraph-backend/mxgraph-backend.iml" filepath="$PROJECT_DIR$/mxgraph-source/mxgraph-backend/mxgraph-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mxGraphExamples/mxgraph-example.iml" filepath="$PROJECT_DIR$/mxGraphExamples/mxgraph-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mxgraph-webui/mxgraph-webui.iml" filepath="$PROJECT_DIR$/mxgraph-webui/mxgraph-webui.iml" />
+    </modules>
+  </component>
+</project>

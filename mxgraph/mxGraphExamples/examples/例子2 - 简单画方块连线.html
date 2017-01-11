@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>例子2 - 简单画方块连线</title>
+
+	<script type="text/javascript">mxBasePath = '../src';</script>
+
+	<script type="text/javascript" src="../src/js/mxClient.js"></script>
+
+</head>
+<body>
+
+	<div id="main"></div>
+
+	<script type="text/javascript">
+
+		var container = document.getElementById("main");
+		var graph = new mxGraph(container);
+
+		var parent = graph.getDefaultParent();
+
+		var style = {};
+		style[mxConstants.STYLE_FILLCOLOR] = "#FFFF00";
+
+		graph.getStylesheet().putCellStyle("haha", style);
+
+		// 画方块
+		var v1 = graph.insertVertex(parent, null, '第一个盒子', 50, 50, 80, 30, "haha;fillColor=#FF00FF;");
+		var v2 = graph.insertVertex(parent, null, '第二个盒子', 500, 50, 80, 30, "fillColor=#0000FF;");
+
+		// 连线
+		graph.insertEdge(parent, null, 'box1 connect to box2', v1, v2 , "");
+
+	</script>
+</body>
+</html>

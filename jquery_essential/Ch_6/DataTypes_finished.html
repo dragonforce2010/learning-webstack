@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Working With Different Data Types</title>
+    <style>
+        #ajaxContent {
+            padding: 5pt;
+            border: 2px dashed lightgray;
+        }
+    </style>
+    <link rel="stylesheet" href="../style.css" />
+
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            //getXMLData();
+            getJSONData();
+        });
+
+        function getXMLData() {
+            $.get("testxmldata.xml", function(result) {
+                var title = result.getElementsByTagName("title")[0];
+                var name = result.getElementsByTagName("name")[0];
+                var val = title.firstChild.nodeValue + " by " + name.firstChild.nodeValue;
+                $("#ajaxContent").append(val);
+            });
+        }
+
+        function getJSONData() {
+            var flickrAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+            $.getJSON( flickrAPI, {
+                tags: "space needle",
+                tagmode: "any",
+                format: "json"
+                },
+                successFn);
+        }
+
+        function successFn(result) {
+            $.each(result.items, function(i, item) {
+                $("<img>").attr("src", item.media.m).appendTo("#ajaxContent");
+                if (i === 4) {
+                    return false;
+                }
+            });
+        }
+
+        function errorFn(xhr, status, strErr) {
+            alert(strErr);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Working With Different Data Types</h1>
+    <div id="content">
+        <p>Using AJAX, it is possible to retrieve and work with different types of data. In this example, we will write jQuery
+            code to work with JSON and XML data.</p>
+        <ul>
+            <li>For the XML, we'll use a local file that contains a simple XML structure. </li>
+            <li>For the JSON example we'll use the public Flickr API to retrieve images that match a set of parameters.</li>
+        </ul>
+        <p>The returned data will be inserted into this div:</p>
+        <div id="ajaxContent"></div>
+    </div>
+</body>
+
+</html>

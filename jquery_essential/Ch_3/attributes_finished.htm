@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Manipulating Element Attributes</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            // Read the alt attributes from all images
+            //$("#example").after("<p id='alts'>");
+            //$("img").each(function() {
+            //    $("#alts").append($(this).attr("alt") + " ");
+            //});
+            
+            // Add a title attribute to all of the images
+            //$("a").attr("title", "Photo by some photographer");
+
+            // Make each image open in a new window
+            $("a").attr("target", "_blank");
+
+            // Remove the href from the <a> tags, making images unclickable
+            //$("a").removeAttr("href");
+
+            // Modify multiple attributes at once
+            //$("img").attr({ src: "images/Spring.jpg", title: "Spring all the things!" });
+        });
+    </script>
+    <style type="text/css">
+        img {
+            margin: 20px;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Manipulating Attributes</h1>
+    <div id="content">
+
+        <p>To read or change element attributes, use the <code>attr()</code> function. <code>removeAttr()</code> can be used
+            to remove attributes</p>
+        <ul>
+            <li><code>attr()</code>: get the value of an attribute</li>
+            <li><code>attr(<i>name</i>, <i>val</i>)</code>: set the <i>name</i> attribute to <i>val</i></li>
+            <li><code>attr(<i>{ name: val ... }</i>)</code>: set multiple attributes in one call</li>
+            <li><code>removeAttr(<i>name</i>)</code>: remove the attribute from the element</li>
+        </ul>
+        <div id="example">
+            <a href="images/Grass.jpg"><img src="images/Grass.jpg" alt="Grass" /></a>
+            <a href="images/Leaf.jpg"><img src="images/Leaf.jpg" alt="Leaf" /></a>
+            <a href="images/Spring.jpg"><img src="images/Spring.jpg" alt="Spring" /></a>
+            <a href="images/Water.jpg"><img src="images/Water.jpg" alt="Water" /></a>
+        </div>
+    </div>
+</body>
+
+</html>

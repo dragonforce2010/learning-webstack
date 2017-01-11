@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>例子20 - 绕线</title>
+	<style type="text/css">
+		* { margin:0; padding:0; }
+		body { padding:10px; }
+		#main { width:1200px; height:400px; overflow:hidden; border:1px solid #999; }
+		
+		#main1 { width:1200px; height:200px; overflow:hidden; border:1px solid #999; }
+	</style>
+	<script type="text/javascript">mxBasePath = '../src';</script>
+	<script type="text/javascript" src="../src/js/mxClient.js"></script>
+</head>
+<body>
+	
+
+	<div id="main"></div>
+	<div id="main1"></div>
+
+	
+	<script type="text/javascript">	
+
+	(function(){
+
+	
+		var container = document.getElementById("main1");
+
+		 graph1 = new mxGraph(container);
+		var parent1 = graph1.getDefaultParent();
+
+
+		style = graph1.getStylesheet().getDefaultEdgeStyle();
+		style[mxConstants.STYLE_EDGE] = mxEdgeStyle.ElbowConnector;
+		//style[mxConstants.STYLE_ROUNDED] = true;
+
+
+		// 开启拖拽选择
+		new mxRubberband(graph1);
+
+		graph1.getModel().beginUpdate();
+
+		var v1 = graph1.insertVertex(parent1, null, "text1", 100, 100, 50, 50);
+		var v2 = graph1.insertVertex(parent1, null, "text2", 350, 100, 50, 50);
+		var v3 = graph1.insertVertex(parent1, null, "text3", 600, 100, 50, 50);
+
+		console.log(v1);
+
+		var e1 = graph1.insertEdge( parent1, null , "333", v1, v3 );
+
+		e1.geometry.points = [new mxPoint(400, 50)];
+		//e1.geometry.setTerminalPoint(new mxPoint(600, 500), false);
+
+		var e2 = graph1.insertEdge( parent1, null , "555", v1, v2 );
+		
+
+		graph1.getModel().endUpdate();
+
+		var container = document.getElementById("main");
+
+		var root = new mxCell();
+		var model = new mxGraphModel(root);
+
+		var graph = new mxGraph(container);
+		
+		graph.getModel().beginUpdate();
+
+		try{
+		
+			var parent = graph.getDefaultParent();
+
+			var v1 = graph.insertVertex(parent, null, 'Hello,', 20, 20, 80, 30, 'fillColor=#C0C0C0');
+			var v2 = graph.insertVertex(parent, null, 'Hello,', 200, 20, 80, 30, 'fillColor=#C0C0C0');
+			
+			var v3 = graph.insertVertex(parent, null, 'World!', 110, 150, 80, 30);
+			var e1 = graph.insertEdge(parent, null, '', v1, v3, 'strokeColor=#0C0C0C');
+			e1.geometry.points = [new mxPoint(60, 165)];
+			var e2 = graph.insertEdge(parent, null, '', v2, v3);
+			e2.geometry.points = [new mxPoint(240, 165)];
+			var e3 = graph.insertEdge(parent, null, '', v1, v2, 'edgeStyle=topToBottomEdgeStyle');
+			e3.geometry.points = [new mxPoint(150, 30)];
+			var e4 = graph.insertEdge(parent, null, '', v2, v1, 'strokeColor=#0C0C0C;edgeStyle=topToBottomEdgeStyle');
+			e4.geometry.points = [new mxPoint(150, 40)];
+			
+		}finally{
+			// Updates the display
+			graph.getModel().endUpdate();
+		}
+
+		return;				
+
+		// Creates a process display using the activity names as IDs to refer to the elements
+		var xml = '<mxGraphModel><root><mxCell id="0"/><mxCell id="1" parent="0"/>'+
+			'<mxCell id="2" value="Claim Handling Process" style="swimlane" vertex="1" parent="1"><mxGeometry x="1" width="840" height="400" as="geometry"/></mxCell>'+
+			'<mxCell id="3" value="Claim Manager" style="swimlane" vertex="1" parent="2"><mxGeometry x="24" width="816" height="200" as="geometry"/></mxCell>'+
+			'<mxCell id="5" value="" style="start" vertex="1" parent="3"><mxGeometry x="40" y="85" width="30" height="30" as="geometry"/></mxCell>'+
+			'<mxCell id="AuthorizeClaim" value="Authorize&#xa;Claim" vertex="1" parent="3"><mxGeometry x="90" y="80" width="100" height="40" as="geometry"/></mxCell>'+
+			'<mxCell id="6" value="X" style="step" vertex="1" parent="3"><mxGeometry x="210" y="85" width="30" height="30" as="geometry"/></mxCell>'+
+			'<mxCell id="ApproveClaim" value="Approve&#xa;Claim" vertex="1" parent="3"><mxGeometry x="260" y="80" width="100" height="40" as="geometry"/></mxCell>'+
+			'<mxCell id="7" value="X" style="step" vertex="1" parent="3"><mxGeometry x="380" y="85" width="30" height="30" as="geometry"/></mxCell>'+
+			'<mxCell id="8" value="" edge="1" parent="3" source="5" target="AuthorizeClaim"><mxGeometry relative="1" as="geometry"/></mxCell>'+
+			'<mxCell id="9" value="" edge="1" parent="3" source="AuthorizeClaim" target="6"><mxGeometry relative="1" as="geometry"/></mxCell>'+
+			'<mxCell id="10" value="" edge="1" parent="3" source="6" target="ApproveClaim"><mxGeometry relative="1" as="geometry"/></mxCell>'+
+			'<mxCell id="11" value="" edge="1" parent="3" source="ApproveClaim" target="7"><mxGeometry relative="1" as="geometry"/></mxCell>'+
+			'<mxCell id="12" value="" edge="1" parent="3" source="7" target="AuthorizeClaim"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="140" y="40"/></Array></mxGeometry></mxCell>'+
+			'<mxCell id="ReviewClaim" value="Review&#xa;Claim" vertex="1" parent="3"><mxGeometry x="480" y="80" width="100" height="40" as="geometry"/></mxCell>'+
+			'<mxCell id="22" value="X" style="step" vertex="1" parent="3"><mxGeometry x="600" y="85" width="30" height="30" as="geometry"/></mxCell>'+
+			'<mxCell id="23" value="" edge="1" parent="3" source="ReviewClaim" target="22"><mxGeometry relative="1" as="geometry"/></mxCell>'+
+			'<mxCell id="ApproveReviewedClaim" value="Approve Rev.&#xa;Claim" vertex="1" parent="3"><mxGeometry x="650" y="80" width="100" height="40" as="geometry"/></mxCell>'+
+			'<mxCell id="26" value="" edge="1" parent="3" source="22" target="ApproveReviewedClaim"><mxGeometry relative="1" as="geometry"/></mxCell>'+
+			'<mxCell id="27" value="X" style="step" vertex="1" parent="3"><mxGeometry x="770" y="85" width="30" height="30" as="geometry"/></mxCell>'+
+			'<mxCell id="28" value="" edge="1" target="27" parent="3" source="ApproveReviewedClaim"><mxGeometry relative="1" as="geometry"><mxPoint x="740" y="100" as="sourcePoint"/><mxPoint x="760" y="100" as="targetPoint"/></mxGeometry></mxCell>'+
+			'<mxCell id="32" value="" edge="1" parent="3" source="27" target="ReviewClaim"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="665" y="160"/></Array></mxGeometry></mxCell>'+
+			'<mxCell id="4" value="Accountant" style="swimlane" vertex="1" parent="2"><mxGeometry x="24" y="200" width="816" height="200" as="geometry"/></mxCell>'+
+			'<mxCell id="EnterAccountingData" value="Enter&#xa;Data" vertex="1" parent="4"><mxGeometry x="430" y="80" width="100" height="40" as="geometry"/></mxCell>'+
+			'<mxCell id="14" value="X" style="step" vertex="1" parent="4"><mxGeometry x="550" y="85" width="30" height="30" as="geometry"/></mxCell>'+
+			'<mxCell id="15" value="" edge="1" parent="4" source="EnterAccountingData" target="14"><mxGeometry relative="1" as="geometry"/></mxCell>'+
+			'<mxCell id="CheckAccountingData" value="Check&#xa;Data" vertex="1" parent="4"><mxGeometry x="600" y="80" width="100" height="40" as="geometry"/></mxCell>'+
+			'<mxCell id="16" value="" edge="1" parent="4" source="14" target="CheckAccountingData"><mxGeometry relative="1" as="geometry"/></mxCell>'+
+			'<mxCell id="17" value="X" style="step" vertex="1" parent="4"><mxGeometry x="720" y="85" width="30" height="30" as="geometry"/></mxCell>'+
+			'<mxCell id="18" value="" edge="1" parent="4" source="CheckAccountingData" target="17"><mxGeometry relative="1" as="geometry"/></mxCell>'+
+			'<mxCell id="19" value="" style="end" vertex="1" parent="4"><mxGeometry x="770" y="85" width="30" height="30" as="geometry"/></mxCell>'+
+			'<mxCell id="20" value="" edge="1" parent="4" source="17" target="19"><mxGeometry relative="1" as="geometry"/></mxCell>'+
+			'<mxCell id="31" value="" edge="1" parent="4" source="17" target="EnterAccountingData"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="625" y="160"/></Array></mxGeometry></mxCell>'+
+			'<mxCell id="13" value="" edge="1" parent="2" source="7" target="EnterAccountingData"><mxGeometry relative="1" as="geometry"/></mxCell>'+
+			'<mxCell id="24" value="" edge="1" parent="2" source="14" target="ReviewClaim" style="edgeStyle=none"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="589" y="180"/><mxPoint x="480" y="180"/><mxPoint x="480" y="100"/></Array></mxGeometry></mxCell>'+
+			'<mxCell id="29" value="" edge="1" parent="2" source="22" target="EnterAccountingData"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="469" y="40"/></Array></mxGeometry></mxCell>'+
+			'<mxCell id="30" value="" edge="1" parent="2" source="27" target="EnterAccountingData"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="469" y="40"/></Array></mxGeometry></mxCell>'+
+			'<mxCell id="33" value="" edge="1" parent="2" source="6" target="EnterAccountingData"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="249" y="200"/></Array></mxGeometry></mxCell>'+
+			'</root></mxGraphModel>';
+		var doc = mxUtils.parseXml(xml);
+		var codec = new mxCodec(doc);
+		codec.decode(doc.documentElement, graph.getModel());
+
+		function createGraph(container){
+
+			var graph = new mxGraph(container);
+
+			/*
+			graph.setTooltips(true);
+			graph.setEnabled(false);
+			
+			// Disables folding
+			graph.isCellFoldable = function(cell, collapse)
+			{
+				return false;
+			};
+			*/
+
+			
+			// Creates the stylesheet for the process display
+			//var style = graph.getStylesheet().getDefaultVertexStyle();
+			//style[mxConstants.STYLE_FONTSIZE] = '12';
+			//style[mxConstants.STYLE_FONTCOLOR] = 'black';
+			//style[mxConstants.STYLE_STROKECOLOR] = 'black';
+			//style[mxConstants.STYLE_FILLCOLOR] = 'white';
+			//style[mxConstants.STYLE_GRADIENTCOLOR] = 'white';
+			//style[mxConstants.STYLE_GRADIENT_DIRECTION] = mxConstants.DIRECTION_EAST;
+			//style[mxConstants.STYLE_ROUNDED] = true;
+			//style[mxConstants.STYLE_SHADOW] = true;
+			//style[mxConstants.STYLE_FONTSTYLE] = 1;
+			
+			style = graph.getStylesheet().getDefaultEdgeStyle();
+			//style[mxConstants.STYLE_EDGE] = mxEdgeStyle.ElbowConnector;
+			//style[mxConstants.STYLE_STROKECOLOR] = 'black';
+			//style[mxConstants.STYLE_ROUNDED] = true;
+
+			/*			
+			style = [];
+			style[mxConstants.STYLE_SHAPE] = mxConstants.SHAPE_SWIMLANE;
+			style[mxConstants.STYLE_PERIMETER] = mxPerimeter.RectanglePerimeter;
+			style[mxConstants.STYLE_STROKECOLOR] = 'gray';
+			style[mxConstants.STYLE_FONTCOLOR] = 'black';
+			style[mxConstants.STYLE_FILLCOLOR] = '#E0E0DF';
+			style[mxConstants.STYLE_GRADIENTCOLOR] = 'white';
+			style[mxConstants.STYLE_ALIGN] = mxConstants.ALIGN_CENTER;
+			style[mxConstants.STYLE_VERTICAL_ALIGN] = mxConstants.ALIGN_TOP;
+			style[mxConstants.STYLE_STARTSIZE] = 24;
+			style[mxConstants.STYLE_FONTSIZE] = '12';
+			style[mxConstants.STYLE_FONTSTYLE] = 1;
+			style[mxConstants.STYLE_HORIZONTAL] = false;
+			graph.getStylesheet().putCellStyle('swimlane', style);
+			
+			style = [];
+			style[mxConstants.STYLE_SHAPE] = mxConstants.SHAPE_RHOMBUS;
+			style[mxConstants.STYLE_PERIMETER] = mxPerimeter.RhombusPerimeter;
+			style[mxConstants.STYLE_STROKECOLOR] = 'gray';
+			style[mxConstants.STYLE_FONTCOLOR] = 'gray';
+			style[mxConstants.STYLE_FILLCOLOR] = '#91BCC0';
+			style[mxConstants.STYLE_GRADIENTCOLOR] = 'white';
+			style[mxConstants.STYLE_ALIGN] = mxConstants.ALIGN_CENTER;
+			style[mxConstants.STYLE_VERTICAL_ALIGN] = mxConstants.ALIGN_MIDDLE;
+			style[mxConstants.STYLE_FONTSIZE] = '14';
+			graph.getStylesheet().putCellStyle('step', style);
+			
+			style = [];
+			style[mxConstants.STYLE_SHAPE] = mxConstants.SHAPE_ELLIPSE;
+			style[mxConstants.STYLE_PERIMETER] = mxPerimeter.EllipsePerimeter;
+			style[mxConstants.STYLE_STROKECOLOR] = 'gray';
+			style[mxConstants.STYLE_FONTCOLOR] = 'gray';
+			style[mxConstants.STYLE_FILLCOLOR] = '#A0C88F';
+			style[mxConstants.STYLE_GRADIENTCOLOR] = 'white';
+			style[mxConstants.STYLE_ALIGN] = mxConstants.ALIGN_CENTER;
+			style[mxConstants.STYLE_VERTICAL_ALIGN] = mxConstants.ALIGN_MIDDLE;
+			style[mxConstants.STYLE_FONTSIZE] = '14';
+			graph.getStylesheet().putCellStyle('start', style);
+			
+			style = mxUtils.clone(style);
+			style[mxConstants.STYLE_FILLCOLOR] = '#DACCBC';
+			style[mxConstants.STYLE_STROKECOLOR] = '#AF7F73';
+			style[mxConstants.STYLE_STROKEWIDTH] = 3;
+			graph.getStylesheet().putCellStyle('end', style);
+			*/
+			return graph;
+		};
+	})();
+
+	</script>
+</body>
+</html>
+

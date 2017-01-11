@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>例子1 - 简单画方块</title>
+
+	<script type="text/javascript">mxBasePath = '../src';</script>
+	<script type="text/javascript" src="../src/js/mxClient.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+</head>
+<body>
+
+	<div id="main"></div>
+
+	<script type="text/javascript">
+
+		var container = document.getElementById("main");
+		container.style.background = 'url(editors/images/grid.gif)';
+
+		var graph = new mxGraph(container);
+
+		var parent = graph.getDefaultParent();
+
+		// 画方块
+		graph.insertVertex(parent, null, '第一个盒子', 50, 50, 80, 30);
+		graph.insertVertex(parent, null, '第一个盒子', 200, 50, 80, 30);
+
+
+	</script>
+</body>
+</html>
+

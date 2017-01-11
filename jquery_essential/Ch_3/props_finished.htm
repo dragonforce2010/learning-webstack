@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CSS Properties and Class Manipulation</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            $("#setProp").click(function(evt) {
+                $("#example p").css("text-decoration", "overline")
+                                .css("font-size", "+=1pt");
+            });
+
+            $("#setProps").click(function(evt) {
+                $("#example p").css({
+                    "font-weight" : "bold",
+                    "color" : "red",
+                    "text-decoration" : "underline"
+                });
+            });
+
+            $("#addCl").click(function(evt) {
+                $("#example p").addClass("pClass");
+            });
+
+            $("#rmCl").click(function(evt) {
+                $("#example p").removeClass("pClass");
+            });
+
+            $("#toggleCl").click(function(evt) {
+                $("#example p").toggleClass("pClass");
+            });
+        });
+    </script>
+    <style>
+        .pClass {
+            color: green;
+            text-transform: uppercase
+        }
+        
+        button {
+            margin: 5pt 5pt 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CSS Properties and Class Manipulation</h1>
+    <div id="content">
+
+        <p>Getting and setting CSS information is accomplished via a set of dedicated jQuery functions.</p>
+        <p>In addition to setting and retrieving individual CSS properties, there are methods for easily changing the CSS classes
+            assigned to page elements that work in a cross-browser manner.</p>
+        <ul>
+            <li><code>css()</code>: get or set CSS properties on the matched elements in a variety of ways</li>
+            <li><code>hasClass(className)</code>: determine whether a page element has a certain class</li>
+            <li><code>addClass(className | function)</code>: add the given CSS class to the elements in the matched set</li>
+            <li><code>removeClass(className | function)</code>: remove the given CSS class from the elements in the matched set</li>
+            <li><code>toggeClass(className | function)</code>: add or remove the given CSS class to the elements in the matched set depending on whether it is already there</li>
+        </ul>
+        <div id="example">
+            <p class="a">This is paragraph 1</p>
+            <p id="para1">This is paragraph 2</p>
+            <p class="b">This is paragraph 3</p>
+            <p id="para4" lang="en-us">This is paragraph 4</p>
+            <p id="para5" lang="en-gb">This is paragraph 5</p>
+        </div>
+        <button id="setProp">Set Property</button>
+        <button id="setProps">Set Properties</button>
+        <button id="addCl">Add Class</button>
+        <button id="rmCl">Remove Class</button>
+        <button id="toggleCl">Toggle Class</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+D:\Dropbox\aaron-powell\javascript-design-patterns\Pub-Sub\before\Store\Store\bin\Store.dll
+D:\Dropbox\aaron-powell\javascript-design-patterns\Pub-Sub\before\Store\Store\bin\Store.pdb
+D:\Dropbox\aaron-powell\javascript-design-patterns\Pub-Sub\before\Store\Store\obj\Debug\Store.dll
+D:\Dropbox\aaron-powell\javascript-design-patterns\Pub-Sub\before\Store\Store\obj\Debug\Store.pdb
+D:\Dropbox\aaron-powell\javascript-design-patterns\Pub-Sub\after\Store\Store\bin\Store.dll
+D:\Dropbox\aaron-powell\javascript-design-patterns\Pub-Sub\after\Store\Store\bin\Store.pdb
+D:\Dropbox\aaron-powell\javascript-design-patterns\Pub-Sub\after\Store\Store\obj\Debug\Store.dll
+D:\Dropbox\aaron-powell\javascript-design-patterns\Pub-Sub\after\Store\Store\obj\Debug\Store.pdb

@@ -1,0 +1,19 @@
+{
+  "name": "vidpub",
+  "version": "1.0.0",
+  "description": "Our little app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "author": "Rob Conery",
+  "devDependencies": {
+    "electron-prebuilt": "^0.36.0"
+  },
+  "dependencies": {
+    "electron-reload": "^0.2.0",
+    "jade": "^1.11.0",
+    "jquery": "^2.2.0",
+    "underscore": "^1.8.3"
+  }
+}

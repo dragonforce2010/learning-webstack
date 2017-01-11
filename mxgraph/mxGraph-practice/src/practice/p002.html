@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example 001</title>
+
+    <script type="text/javascript">
+        mxBasePath = "../lib";
+    </script>
+    <script src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../lib/js/mxClient.js"></script>
+    <script></script>
+</head>
+<body>
+    <div id="main"></div>
+    <script>
+        var container = $("#main")[0];
+//        container.style.background = 'url(../lib/editors/images/grid.gif)';
+
+        var graph = new mxGraph(container);
+        var parent = graph.getDefaultParent();
+
+        var style = {};
+        style[mxConstants.STYLE_FILLCOLOR] = "#999999";
+        graph.getStylesheet().putCellStyle('mystyle', style);
+
+        var v1 = graph.insertVertex(parent, null, 'The first box', 100, 100, 200, 20, "mystyle;fillColor=#ff99ff")
+        var v2 = graph.insertVertex(parent, null, 'The second box', 500, 100, 200, 20, "mystyle");
+
+        graph.insertEdge(parent, null, "Connector line", v1, v2, "");
+
+    </script>
+</body>
+</html>
+
+
+

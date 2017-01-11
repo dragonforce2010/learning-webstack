@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Using slide to show and reveal elements</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#slideup").click(function() {
+            });
+            $("#slidedown").click(function() {
+            });
+            $("#toggle").click(function() {
+            });
+        });
+    </script>
+    <style type="text/css">
+        div#theDiv {
+            width: 250px;
+            height: 180px;
+            margin: 10px;
+            padding: 20px;
+            background: #b3c8d0;
+            border: 1px solid gray;
+            cursor: pointer;
+        }
+        
+        p,
+        span {
+            font-size: 16pt;
+        }
+        
+        button {
+            margin: 5pt 5pt 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Using the slide functions</h1>
+    <div id="content">
+
+        <p>Elements can also be shown and revealed via the slide functions. A common use case for this feature is when, for
+            example, you have a message to display to the user that can be dismissed once read.</p>
+        <ul>
+            <li><code>slideUp()</code>: animates the height of the matched elements to 0 (or whatever CSS min-height is set to).
+                When the animation finishes, the <code>display</code> CSS property of the element is set to 'none' to remove
+                the element from the page layout</li>
+            <li><code>slideDown()</code>: animates the height of the matched elements to reveal them</li>
+            <li><code>slideToggle()</code>: toggles the state of the matched elements, either sliding them up or down depending
+                on their current state</li>
+        </ul>
+        <div id="theDiv">
+        </div>
+        <button id="slideup">Slide Up</button>
+        <button id="slidedown">Slide Down</button>
+        <button id="toggle">Toggle Slide</button>
+    </div>
+</body>
+
+</html>

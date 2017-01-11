@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>例子7 - 拖拽连接建立关系</title>
+
+	<script type="text/javascript">mxBasePath = '../src';</script>
+
+	<script type="text/javascript" src="../src/js/mxClient.js"></script>
+
+</head>
+<body>
+
+	<div id="main"></div>
+	
+
+	<script type="text/javascript">
+		document.body.style.margin = 0;
+		document.body.style.padding = 0;
+
+		var container = document.getElementById("main");
+		container.style.background = 'url(editors/images/grid.gif)';
+
+		container.style.width = "100%";
+		container.style.height =  (window.screen.availHeight - 90 ) + "px";
+		container.style.overflow = "hidden";
+
+		var graph = new mxGraph(container);
+
+		// 开启可以拖拽建立关系
+		graph.setConnectable(true);
+
+		// 开启方块上的文字编辑功能
+		graph.setCellsEditable(true);
+
+		// 启用对齐线帮助定位
+		mxGraphHandler.prototype.guidesEnabled = true;
+		
+
+		// 选择基本元素开启
+		graph.setEnabled(true);
+
+
+		var parent = graph.getDefaultParent();
+
+
+		// 画方块
+		graph.insertVertex(parent, null, '第一个方块', 100, 100, 150, 150);
+		graph.insertVertex(parent, null, '第二个方块', 800, 500, 150, 150);
+		graph.insertVertex(parent, null, '第三个方块', 100, 500, 150, 150);
+		graph.insertVertex(parent, null, '第四个方块', 800, 100, 150, 150);
+
+		
+	</script>
+</body>
+</html>
+

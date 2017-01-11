@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+</p>
+
+<ul class="log">
+
+</ul>
+
+<script>
+    $(document).ready(function () {
+        var ul = $('ul.log'),
+            index = 0;
+
+        setInterval(function () {
+            var started = new Date(),
+                i = index;
+
+            index++;
+
+            $.get('/home/date', function (date) {
+                var end = new Date();
+                ul.append('<li>Request ' + i + ' started at ' + started.getHours() + ':' + started.getMinutes() + ':' + started.getSeconds() + '. Response: ' + date + '. Finished: ' + end.getHours() + ':' + end.getMinutes() + ':' + end.getSeconds() + '</li>');
+            });
+        }, 5000);
+    })
+</script>

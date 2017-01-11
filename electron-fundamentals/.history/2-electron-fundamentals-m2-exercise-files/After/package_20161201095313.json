@@ -1,0 +1,26 @@
+{
+  "name": "countdown-demo",
+  "version": "1.0.0",
+  "description": "Demo for testing electron processes",
+  "main": "src/main.js",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "electron-prebuilt": "^0.37.8"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaketrent/electron-photobombth.git"
+  },
+  "keywords": [],
+  "author": "jaketrent",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaketrent/electron-photobombth/issues"
+  },
+  "homepage": "https://github.com/jaketrent/electron-photobombth#readme"
+}

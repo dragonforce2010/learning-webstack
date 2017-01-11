@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>例子9 - 多种形状图形</title>
+
+	<script type="text/javascript">mxBasePath = '../src';</script>
+
+	<script type="text/javascript" src="../src/js/mxClient.js"></script>
+
+</head>
+<body>
+
+	<div id="main"></div>
+	
+
+	<script type="text/javascript">
+		document.body.style.margin = 0;
+		document.body.style.padding = 0;
+
+		var container = document.getElementById("main");
+		container.style.background = 'url(editors/images/grid.gif)';
+
+		container.style.width = "100%";
+		container.style.height =  (window.screen.availHeight - 90 ) + "px";
+		container.style.overflow = "hidden";
+
+		var graph = new mxGraph(container);
+
+
+		var parent = graph.getDefaultParent();
+
+
+		// 画方块
+		graph.insertVertex(parent, null, '矩形', 50, 50, 150, 150);
+
+
+		// 画方块
+		// shape=rounded 定义圆角  arcSize=10 定义圆角弧度
+		graph.insertVertex(parent, null, '圆角矩形', 300, 50, 150, 150, "rounded=true;perimeter=ellipsePerimeter;arcSize=20;");
+
+		// 画椭圆
+		// shape=elipse 定义椭圆  perimeter=ellipsePerimeter 让连线的箭头或起点触到边缘
+		graph.insertVertex(parent, null, '椭圆', 550, 50, 150, 150, "shape=ellipse;perimeter=ellipsePerimeter;");
+
+		// 画三角形
+		// shape=triangl 定义三角形  perimeter=ellipsePerimeter 让连线的箭头或起点触到边缘 direction=south 让三角形倒立
+		graph.insertVertex(parent, null, '三角形', 800, 50, 150, 150, "shape=triangle;perimeter=ellipsePerimeter;direction=south;");
+
+
+		// 画菱形
+		// shape=rhombus 定义菱形
+		graph.insertVertex(parent, null, '三角形', 1050, 50, 150, 150, "shape=rhombus;perimeter=ellipsePerimeter;");
+
+		// 画柱形
+		// shape=cylinder 定义柱形
+		graph.insertVertex(parent, null, '柱形', 1300, 50, 150, 150, "shape=cylinder;perimeter=ellipsePerimeter;");
+
+		// 画人
+		// shape=actor 定义演员
+		graph.insertVertex(parent, null, '演员', 50, 300, 150, 150, "shape=actor;perimeter=ellipsePerimeter;");
+
+		// 画云
+		graph.insertVertex(parent, null, '云', 300, 300, 150, 150, "shape=cloud;perimeter=ellipsePerimeter;");
+
+	</script>
+</body>
+</html>
+
+

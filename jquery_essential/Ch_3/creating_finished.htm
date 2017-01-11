@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Creating New Content</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <script type="text/javascript" src="../jquery-3.0.0.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function() {
+            document.getElementById("create").addEventListener("click", function (evt) {
+                createContent();
+            });
+            document.getElementById("change").addEventListener("click", function (evt) {
+                changeContent();
+            });
+            document.getElementById("changeAll").addEventListener("click", function (evt) {
+                changeAllTheContent();
+            });
+            // use the html() function to get the current HTML of an element
+            //alert($("#example").html());
+        });
+        function createContent() {
+            // use the html() function to change the content of the div
+            $("#example").html("<p>Hi there!</p>");
+        }
+        
+        function changeContent() {
+            // set the text content of the last paragraph
+            var newItem = $("<p>This is a new paragraph</p>");
+            $("#para1").html(newItem);
+        }
+        
+        function changeAllTheContent() {
+            $("#example p").text("<p>This is a paragraph</p>");
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Creating new document content</h1>
+    <div id="content">
+
+        <p>jQuery makes the creation and manipulation of document content very easy. Rather than having to directly use the
+            verbose DOM methods, you can roll several operations into just a few function calls.</p>
+        <ul id="list1">
+            <li><code>html(<i>str</i>)</code>: can be used to retrieve or set the HTML content of an element</li>
+            <li><code>text(<i>str</i>)</code>: used to retrieve or set the text content of an element</li>
+        </ul>
+        <div id="example">
+            <p class="a">This is paragraph 1</p>
+            <p id="para1">This is paragraph 2</p>
+            <p class="b">This is paragraph 3</p>
+            <p id="para4" lang="en-us">This is paragraph 4</p>
+            <p id="para5" lang="en-gb">This is paragraph 5</p>
+        </div>
+        <div>
+            <button id="create">Create Content</button>
+            <button id="change">Change Content</button>
+            <button id="changeAll">Change All</button>
+        </div>
+    </div>
+</body>
+
+</html>
